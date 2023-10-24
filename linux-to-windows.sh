@@ -1,5 +1,27 @@
 #!/bin/bash
 
+# This script helps create a customized Windows 10 ISO with VirtIO drivers. 
+# It checks if the user is root, prompts the user to download the official Windows 10 ISO from Microsoft's website, and mounts the ISO. 
+# It also downloads the Virtio ISO, creates a temporary folder, and modifies the boot.wim file. 
+# The script formats the disk as NTFS, mounts it, copies the Windows 10 files to the disk, and configures Grub to add Windows 10 to the boot menu. 
+# Finally, it updates Grub, unmounts the NTFS partition, and reboots the system. 
+
+# Usage: 
+# 1. Download the official Windows 10 ISO from Microsoft's website: https://www.microsoft.com/en-us/software-download/windows10
+# 2. Rename the file to 'Win10.iso' and place it in the same folder as this script.
+# 3. Run the script with administrator privileges: sudo ./script.sh
+# 4. Follow the prompts to create a customized Windows 10 ISO with VirtIO drivers.
+
+# Dependencies:
+# - wget
+# - mktemp
+# - ntfs-3g
+# - grub
+
+# Note: This script modifies the boot.wim file, which may cause issues with Windows 10 updates. Use at your own risk.
+
+#!/bin/bash
+
 # Check if the user is root
 if [ "$(id -u)" != "0" ]; then
     echo "This script must be run as the root user. Please run it with administrator privileges."
