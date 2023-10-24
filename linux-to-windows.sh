@@ -20,8 +20,6 @@
 
 # Note: This script modifies the boot.wim file, which may cause issues with Windows 10 updates. Use at your own risk.
 
-#!/bin/bash
-
 # Check if the user is root
 if [ "$(id -u)" != "0" ]; then
     echo "This script must be run as the root user. Please run it with administrator privileges."
